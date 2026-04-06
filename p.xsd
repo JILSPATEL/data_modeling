@@ -1,18 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://www.example.com/student"
-    xmlns:stu="http://www.example.com/student"
-    elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:element name="student">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="name" type="xs:string"/>
-        <xs:element name="age" type="xs:integer"/>
-      </xs:sequence>
-      <xs:attribute name="id" type="xs:string" use="required"/>
-    </xs:complexType>
-  </xs:element>
+    <xs:simpleType name="AccType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Savings"/>
+            <xs:enumeration value="Current"/>
+            <xs:enumeration value="Investment"/>
+        </xs:restriction>
+    </xs:simpleType>
 
+    <xs:simpleType name="RelationshipType">
+        <xs:list itemType="AccType"/>
+    </xs:simpleType>
+
+    <xs:element name="customer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="relation" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="RelationshipType">
+                                <xs:attribute name="since" type="xs:date" use="optional"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

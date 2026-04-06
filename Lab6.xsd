@@ -29,14 +29,9 @@
                 <xs:sequence>
                     <xs:element name="name" type="xs:string"/>
                     <xs:element name="image" type="imageType"/>
-                    <xs:element name="weight"
-                                type="xs:decimal"
-                                minOccurs="0"/>
-                    <xs:element name="cost"
-                                type="money"
-                                maxOccurs="unbounded"/>
-                    <xs:element name="retailer"
-                                type="xs:anyURI"/>
+                    <xs:element name="weight" type="xs:decimal" minOccurs="0"/>
+                    <xs:element name="cost" type="money" maxOccurs="unbounded"/>
+                    <xs:element name="retailer" type="xs:anyURI"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -46,10 +41,7 @@
     <xs:element name="juicers">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="juicer"
-                            type="juiceAppliance"
-                            minOccurs="0"
-                            maxOccurs="unbounded">
+                <xs:element name="juicer" type="juiceAppliance" minOccurs="0" maxOccurs="unbounded">
                 </xs:element>
             </xs:sequence>
         </xs:complexType>

@@ -12,33 +12,23 @@
 
     <xs:simpleType name="imageType">
         <xs:restriction base="xs:string">
-            <xs:pattern value="[A-Za-z0-9]+.(jpg|png)"></xs:pattern>
+            <xs:pattern value="[A-Za-z0-9]+.(jpg|jpeg|png|gif)"/>
         </xs:restriction>
     </xs:simpleType>
 
     <xs:element name="juicers">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="juicer"
-                            minOccurs="0"
-                            maxOccurs="unbounded">
+                <xs:element name="juicer" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="name" type="xs:string"/>
                             <xs:element name="image" type="imageType"/>
                             <xs:element name="description" type="xs:string"/>
-                            <xs:element name="warranty"
-                                        type="xs:string"
-                                        minOccurs="0"/>
-                            <xs:element name="weight"
-                                        type="xs:decimal"
-                                        minOccurs="0"/>
-                            <xs:element name="cost"
-                                        type="money"
-                                        minOccurs="1"
-                                        maxOccurs="unbounded"/>
-                            <xs:element name="retailer"
-                                        type="xs:anyURI"/>
+                            <xs:element name="warranty" type="xs:string" minOccurs="0"/>
+                            <xs:element name="weight" type="xs:decimal" minOccurs="0"/>
+                            <xs:element name="cost" type="money" minOccurs="1" maxOccurs="unbounded"/>
+                            <xs:element name="retailer" type="xs:anyURI"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
